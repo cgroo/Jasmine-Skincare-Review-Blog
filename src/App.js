@@ -5,14 +5,16 @@ import NewReviewModal from './NewReviewModal';
 import DetailModal from './DetailModal';
 
 export default function App() {
-const [reviews, setReviews] = useState(INITIAL_REVIEWS);
-const [filter, setFilters] = useState('All');
-const [query, setQuery] = useState('');
-const [showNew, setShowNew] = useState(false); 
-const [detail, setDetail] = useState(null);
+  const [reviews, setReviews] = useState(INITIAL_REVIEWS);
+  const [filter, setFilters] = useState('All');
+  const [query, setQuery] = useState('');
+  const [showNew, setShowNew] = useState(false); 
+  const [detail, setDetail] = useState(null);
 
-const visible = []
-handlePublish()
+  const visible = []
+  function handlePublish(newReview) {
+    setReviews([newReview, review]);
+  }
   //add newReview to fron of reviews array
   // close modal
   return(
