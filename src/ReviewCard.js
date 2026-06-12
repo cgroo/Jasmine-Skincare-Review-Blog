@@ -10,7 +10,7 @@ export default function ReviewCard({review, onClick}) {
                     whileTap = {{scale: 0.95}}
         >
             <div className = "photoReviewCircle">
-                <img src = {}/>
+                {review.photo? <img src = {review.photo} alt = {review.name}/> : <span>{review.emoji}</span>}
             </div>
             <div className = "bodyReview">
                 <p>{review.name}</p>
