@@ -21,5 +21,5 @@ export function StarPicker({value, onChange}) {
                 >★</button>
             ))}
         </div>
-    )
+    );
 }

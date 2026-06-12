@@ -18,4 +18,4 @@ export const INITIAL_REVIEWS = [
   { id: 4, name: 'BHA Blackhead Power Liquid', brand: 'COSRX', cat: 'Toner', rating: 4, emoji: '💧', review: 'Great for gentle exfoliation. I use it three times a week and my pores look noticeably smaller. Start slow though!' },
   { id: 5, name: 'Overnight Sleeping Mask', brand: 'Laneige', cat: 'Mask', rating: 5, emoji: '🌙', review: 'The most indulgent step in my entire routine. I wake up with genuinely bouncy, glass-skin hydration every time.' },
   { id: 6, name: 'Vitamin C Brightening Serum', brand: 'The Ordinary', cat: 'Serum', rating: 3, emoji: '🍊', review: 'Affordable but the texture takes getting used to. Seen noticeable brightening over about six weeks of consistent use.' },
-];
+]

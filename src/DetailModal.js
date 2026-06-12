@@ -1,4 +1,4 @@
-import { Stars } from './Stars'
+import { Stars } from './Stars';
 
 export default function DetailModal({review, onClose}) {
     if (!review) {
@@ -22,5 +22,5 @@ export default function DetailModal({review, onClose}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
