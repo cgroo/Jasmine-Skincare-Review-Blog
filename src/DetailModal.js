@@ -1,5 +1,6 @@
 import { Stars } from './Stars';
 
+{/*Details of review when clicking review card */}
 export default function DetailModal({review, onClose}) {
     if (!review) {
         return null;

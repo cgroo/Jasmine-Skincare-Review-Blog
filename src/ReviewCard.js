@@ -1,7 +1,7 @@
 import { Stars } from './Stars';
 import { motion } from 'framer-motion';
 
-
+{/*Interactble product bubbles*/}
 export default function ReviewCard({review, onClick}) {
     return(
         <motion.div className = "reviewBox" 

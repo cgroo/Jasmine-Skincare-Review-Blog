@@ -2,6 +2,7 @@ import { StarPicker } from './Stars';
 import { CATEGORIES, CAT_EMOJI } from './data';
 import { useState } from 'react';
 
+{/*Making a new review*/}
 export default function NewReviewModal({onClose, onPublish}) {
     const [name, setName] = useState('');
     const [brand, setBrand] = useState('');
