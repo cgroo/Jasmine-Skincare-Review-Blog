@@ -1,15 +1,20 @@
-import { useState } from "react";
-import { CATEGORIES, INITIAL_REVIEWS } from "./data";
+import { useState, useEffect } from "react";
+import { CATEGORIES } from "./data";
+import { supabase } from './supabase';
 import ReviewCard from "./ReviewCard";
 import NewReviewModal from "./NewReviewModal";
 import DetailModal from "./DetailModal";
 
 export default function App() {
-  const [reviews, setReviews] = useState(INITIAL_REVIEWS);
+  const [reviews, setReviews] = useState([]);
   const [filter, setFilter] = useState("All");
   const [query, setQuery] = useState("");
   const [showNew, setShowNew] = useState(false);
   const [detail, setDetail] = useState(null);
+
+  useEffect(() => {
+    loadReviews();
+  }, [])
 
   const visible = reviews.filter(r => {
     const matchCat = filter === "All" || r.cat === filter;
@@ -18,8 +23,9 @@ export default function App() {
     return matchCat && matchQuery;
   });
 
-  function handlePublish(newReview) {
-    setReviews([newReview, ...reviews]);
+  async function handlePublish(newReview) {
+    await supabase.from('reviews').insert([newReview]);
+    await loadReviews();
     setShowNew(false);
   }
 
@@ -31,6 +37,12 @@ export default function App() {
       alert("Incorrect Password!");
     }
   }
+
+  async function loadReviews() {
+    const { data, error } = await supabase.from('reviews').select('*');
+    if (data) setReviews(data);
+    }
+
 
   return (
     <div className="app">
