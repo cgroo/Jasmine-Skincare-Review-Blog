@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { CATEGORIES, INITIAL_REVIEWS } from './data';
-import ReviewCard from './ReviewCard';
-import NewReviewModal from './NewReviewModal';
-import DetailModal from './DetailModal';
+import { useState } from "react";
+import { CATEGORIES, INITIAL_REVIEWS } from "./data";
+import ReviewCard from "./ReviewCard";
+import NewReviewModal from "./NewReviewModal";
+import DetailModal from "./DetailModal";
 
 export default function App() {
   const [reviews, setReviews] = useState(INITIAL_REVIEWS);
-  const [filter, setFilter] = useState('All');
-  const [query, setQuery] = useState('');
+  const [filter, setFilter] = useState("All");
+  const [query, setQuery] = useState("");
   const [showNew, setShowNew] = useState(false);
   const [detail, setDetail] = useState(null);
 
   const visible = reviews.filter(r => {
-    const matchCat = filter === 'All' || r.cat === filter;
+    const matchCat = filter === "All" || r.cat === filter;
     const matchQuery = r.name.toLowerCase().includes(query.toLowerCase()) ||
                        r.brand.toLowerCase().includes(query.toLowerCase());
     return matchCat && matchQuery;
@@ -23,13 +23,22 @@ export default function App() {
     setShowNew(false);
   }
 
+  function handleAdminClick() {
+    let password = prompt("Please enter your password");
+    if (password === "123") {
+      setShowNew(true)
+    } else {
+      alert("Incorrect Password!");
+    }
+  }
+
   return (
     <div className="app">
 
       {/* Nav */}
       <nav className="nav">
         <h1 className="blogName">Jasmine's Reviews 🌸</h1>
-        <button className="openButton" onClick={() => setShowNew(true)}>
+        <button className="openButton" onClick={() => handleAdminClick()}>
           + New Review
         </button>
       </nav>
@@ -69,7 +78,7 @@ export default function App() {
           {CATEGORIES.map(c => (
             <button
               key={c}
-              className={filter === c ? 'chip active' : 'chip'}
+              className={filter === c ? "chip active" : "chip"}
               onClick={() => setFilter(c)}
             >
               {c}
