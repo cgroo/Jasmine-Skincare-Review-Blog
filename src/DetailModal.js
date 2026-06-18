@@ -1,7 +1,41 @@
 import { Stars } from './Stars';
+import { useState, useEffect } from 'react'
+import { supabase } from './supabase';
 
 {/*Details of review when clicking review card */}
 export default function DetailModal({review, onClose}) {
+    
+    const [ author, setAuthor] = useState('');
+    const [ commentText, setCommentText] = useState('');
+    const [ comments, setComments] = useState([]);
+
+
+    async function loadComments() {
+        const { data } = await supabase.from('comments').select('*').eq('review_id', review.id);
+        if (data) {
+            setComments(data);
+        }
+    }
+
+    async function handleAddComment() {
+        if (author === '' || commentText === '') {
+            alert('Add some context');
+            return
+        }
+        await supabase.from('comments').insert([{
+            review_id: review.id,
+            author: author,
+            body: commentText
+        }]);
+        setAuthor('');
+        setCommentText('');
+        loadComments();
+    }
+
+    useEffect(() => {
+        if (review) loadComments();
+    }, [review]);
+
     if (!review) {
         return null;
     }
