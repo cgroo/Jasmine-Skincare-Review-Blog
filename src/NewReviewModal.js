@@ -1,6 +1,7 @@
 import { StarPicker } from './Stars';
 import { CATEGORIES, CAT_EMOJI } from './data';
 import { useState } from 'react';
+import { supabase } from './supabase';
 
 {/*Making a new review*/}
 export default function NewReviewModal({onClose, onPublish}) {
@@ -11,10 +12,17 @@ export default function NewReviewModal({onClose, onPublish}) {
     const [review, setReview] = useState('');
     const [photo, setPhoto] = useState(null);
 
-    function handlePublish() {
+    async function handlePublish() {
         if (!name || !brand || !review || rating === 0) {
             alert('Please fill in all fields!')
             return
+        }
+        let photoUrl = null;
+        if (photo) {
+            let fileName = `${Date.now()}-${photo.name}`;
+            await supabase.storage.from('product-photos').upload(fileName, photo);           
+            const { data } = supabase.storage.from('product-photos').getPublicUrl(fileName);
+            photoUrl = data.publicUrl;
         }
         onPublish({
             id: Date.now(),
@@ -23,7 +31,8 @@ export default function NewReviewModal({onClose, onPublish}) {
             cat: cat,
             rating: rating,
             review: review,
-            emoji: CAT_EMOJI[cat]
+            emoji: CAT_EMOJI[cat],
+            photo: photoUrl
         })
     }
 
@@ -53,8 +62,8 @@ export default function NewReviewModal({onClose, onPublish}) {
                 <input
                     type = "file"
                     accept = "image/*"
-                    onChange = {e => setPhoto(e.target.files[0])}>
-                </input>
+                    onChange = {e => setPhoto(e.target.files[0])}
+                />
                 <button className = " publishButton" onClick = {handlePublish}>
                     Publish
                 </button>
