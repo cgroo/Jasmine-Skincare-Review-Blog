@@ -1,13 +1,51 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #fdf6f4;
+  color: #4a3540;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background: #ffffff;
+}
+
+.blogName {
+  font-size: 22px;
+  font-weight: 600;
+  color: #d4698a;
+}
+
+.openButton {
+  background: #f4a7c0;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.openButton:hover {
+  background: #e88aa9;
+}
+
+.hero {
+  text-align: center;
+  padding: 48px 24px 32px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  font-weight: 600;
 }

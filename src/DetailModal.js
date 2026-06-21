@@ -55,6 +55,27 @@ export default function DetailModal({review, onClose}) {
                 <div className = "ratingReview">
                     <Stars productRating={review.rating} />
                 </div>
+                <div className="commentsSection">
+                <h3>Comments</h3>
+                {comments.map(c => (
+                    <div key={c.id} className="comment">
+                        <strong>{c.author}</strong>
+                        <p>{c.body}</p>
+                    </div>
+                ))}
+                <input 
+                    type="text" 
+                    placeholder="Your name" 
+                    value={author} 
+                    onChange={e => setAuthor(e.target.value)}
+                />
+                <textarea 
+                    placeholder="Leave a comment..." 
+                    value={commentText} 
+                    onChange={e => setCommentText(e.target.value)}
+                />
+                <button onClick={handleAddComment}>Post comment</button>
+            </div>
             </div>
         </div>
     );
