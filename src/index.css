@@ -213,3 +213,53 @@ body {
 .star.lit {
   color: #e8537e;
 }
+
+/**Dark overlay for review box on-click**/
+.popupBackground {
+  position: fixed;
+  inset: 0;
+  background: rgba(74, 53, 64, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+/**Dark overlay for new review on-click**/
+.newReviewPopup {
+  position: fixed;
+  inset: 0;
+  background: rgba(74, 53, 64, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+/**Main box for review box on-click**/
+.modalBox {
+  background:white;
+  border-radius: 28px;
+  padding: 32px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/**Main box for new review box on-click**/
+.newReviewBox {
+  background: white;
+  border-radius: 28px;
+  padding: 32px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+}
