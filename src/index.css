@@ -214,8 +214,8 @@ body {
   color: #e8537e;
 }
 
-/**Dark overlay for review box on-click**/
-.popupBackground {
+/**Dark overlay for review box on-click and new review on-click**/
+.popupBackground, .newReviewPopup {
   position: fixed;
   inset: 0;
   background: rgba(74, 53, 64, 0.4);
@@ -227,21 +227,8 @@ body {
   z-index: 100;
 }
 
-/**Dark overlay for new review on-click**/
-.newReviewPopup {
-  position: fixed;
-  inset: 0;
-  background: rgba(74, 53, 64, 0.4);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 100;
-}
-
-/**Main box for review box on-click**/
-.modalBox {
+/**Main box for review box on-click and new review box on-click**/
+.modalBox, .newReviewBox {
   background:white;
   border-radius: 28px;
   padding: 32px;
@@ -252,14 +239,55 @@ body {
   position: relative;
 }
 
-/**Main box for new review box on-click**/
-.newReviewBox {
-  background: white;
-  border-radius: 28px;
-  padding: 32px;
+/**Close button**/
+.closeButton{
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #fdf0f4;
+  color: #d4698a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+/**Close button change on hover**/
+.closeButton:hover {
+  background: #f4cfdd;
+}
+
+/**Labels in new review box pop-up**/
+.newReviewBox label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #a87d92;
+  margin-top: 14px;
+  margin-bottom: 5px;
+}
+
+/**Text input, dropdown textarea -- all input fields**/
+.newReviewBox input[type="text"], .newReviewBox select, .newReviewBox textarea {
   width: 100%;
-  max-width: 480px;
-  max-height: 88vh;
-  overflow-y: auto;
-  position: relative;
+  border: 1.5px solid #f4cfdd;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+  background: #fffafa;
+}
+
+/**Focused state -- all input fields**/
+.newReviewBox input[type="text"]:focus, .newReviewBox select:focus, .newReviewBox textarea:focus {
+  border-color: #f4a7c0;
+}
+
+/**Photo input field**/
+.newReviewBox input[type="file"] {
+  margin-top: 14px;
+  font-size: 13px;
 }
