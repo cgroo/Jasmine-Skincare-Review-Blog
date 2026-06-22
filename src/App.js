@@ -31,7 +31,7 @@ export default function App() {
 
   function handleAdminClick() {
     let password = prompt("Please enter your password");
-    if (password === "123") {
+    if (password === process.env.REACT_APP_UPLOAD_PASSWORD) {
       setShowNew(true)
     } else {
       alert("Incorrect Password!");

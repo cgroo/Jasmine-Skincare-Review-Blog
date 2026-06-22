@@ -291,3 +291,35 @@ body {
   margin-top: 14px;
   font-size: 13px;
 }
+
+/**Publish button styling**/
+.publishButton {
+  background: #e8537e;
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+/**Publish button hover**/
+.publishButton:hover{
+  background: #d44270;
+}
+
+/**Star picker styling**/
+.star-btn{
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f4cfdd;
+}
+
+/**Star picker active**/
+.star-btn.lit{
+  color: #e8537e;
+}
