@@ -1,20 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
-/**Reset default browser spacing + use predictable box sizing**/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/**Base page font, background, and text colour**/
 body {
   font-family: 'Quicksand', sans-serif;
   background: #fdf6f4;
   color: #4a3540;
 }
 
-/**Top navigation bar, logo left, button right**/
 .nav {
   display: flex;
   align-items: center;
@@ -23,14 +20,12 @@ body {
   background: #ffffff;
 }
 
-/**Blog name in nav bar**/
 .blogName {
   font-size: 22px;
   font-weight: 600;
   color: #d4698a;
 }
 
-/**New Review button**/
 .openButton {
   background: #f4a7c0;
   color: #ffffff;
@@ -41,39 +36,33 @@ body {
   transition: background 0.2s;
 }
 
-/**Darker button on hover**/
 .openButton:hover {
   background: #e88aa9;
 }
 
-/**Hero wrapper**/
 .hero {
   text-align: center;
   padding: 48px 24px 32px;
 }
 
-/**Hero heading**/
 .hero h2 {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-/**Hero text**/
 .hero p {
   font-size: 15px;
   color: #a87d92;
   margin-bottom: 24px;
 }
 
-/**Row holding 3 stat boxes**/
 .stats {
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
-/**Individual stat boxes**/
 .stat {
   background: white;
   border-radius: 18px;
@@ -83,20 +72,17 @@ body {
   align-items: center;
 }
 
-/**Big value number in stat box**/
 .statValue {
   font-size: 22px;
   font-weight: 600;
   color: #d4698a;
 }
 
-/**Small label underneath stat number**/
 .statLabel {
   font-size: 12px;
   color: #a87d92;
 }
 
-/**Wrapper for search bar + filter chips, vertical**/
 .controls {
   display: flex;
   flex-direction: column;
@@ -105,7 +91,6 @@ body {
   margin-bottom: 36px;
 }
 
-/**Search input bar**/
 .searchBar {
   border: 1.5px solid #f4cfdd;
   border-radius: 999px;
@@ -115,12 +100,10 @@ body {
   width: 280px;
 }
 
-/**Darker border on click**/
 .searchBar:focus {
   border-color: #f4a7c0;
 }
 
-/**One-click filters layout**/
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -128,7 +111,6 @@ body {
   gap: 8px;
 }
 
-/**Individual one-click filters**/
 .chip {
   border: 1.5px solid #f4cfdd;
   background: white;
@@ -140,14 +122,12 @@ body {
   transition: all 0.15s;
 }
 
-/**Active one-click filters**/
 .chip.active {
   background: #f4a7c0;
   border-color: #f4a7c0;
   color: white;
 }
 
-/**3xn container for products**/
 .grid {
   max-width: 960px;
   margin: 0 auto;
@@ -157,7 +137,6 @@ body {
   gap: 22px;
 }
 
-/**Review Box**/
 .reviewBox {
   background: #fdf6f4;
   border-radius: 28px;
@@ -168,7 +147,6 @@ body {
   box-shadow: inset 0 2px 4px rgba(212, 105, 138, 0.06);
 }
 
-/**Create circle for photo**/
 .photoReviewCircle {
   width: 100px;
   height: 100px;
@@ -182,34 +160,8 @@ body {
   font-size: 40px;
 }
 
-/**Resize photo to fit circle**/
 .photoReviewCircle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/**Body review product name**/
-.bodyReview p:first-child {
-  font-weight: 600;
-  font-size: 14px;
-  color: #4a3540;
-}
-
-/**Body review brand name**/
-.bodyReview p:nth-child(2) { 
-  font-size: 12px;
-  color: #a87d92;
-  margin-top: 2px;
-  margin-bottom: 10px;
-}
-
-/**Default empty star colour**/
-.star {
-  color: #f4cfdd;
-}
-
-/**Active stars**/
-.star.lit {
-  color: #e8537e;
 }
