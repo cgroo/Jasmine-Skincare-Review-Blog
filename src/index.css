@@ -211,7 +211,7 @@ body {
 
 /**Active stars**/
 .star.lit {
-  color: #e8537e;
+  color: gold;
 }
 
 /**Dark overlay for review box on-click and new review on-click**/
@@ -366,6 +366,29 @@ body {
   border-radius: 16px;
   margin-top: 12px;
   line-height: 1.6;
+}
+
+/**Modal Photo**/
+.modalPhoto {
+  max-width: 220px;
+  max-height: 280px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  margin: 0 auto 12px;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/**Modal photo zoom**/
+.modalPhoto:hover{
+  transform: scale(2);}
+
+/**Modal photo click**/
+.modalPhoto:active{
+  transform: scale(0.97);
 }
 
 /**Comment Section box**/
