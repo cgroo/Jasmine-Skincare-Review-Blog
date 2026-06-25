@@ -46,6 +46,58 @@ body {
   background: #e88aa9;
 }
 
+/**Carousel container**/
+.carousel {
+  position: relative;
+  height: 380px;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+/**All carousel cards**/
+.carouselCard {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 380px;
+  transition: all 0.6s ease;
+}
+
+/**Card 1 positioning**/
+.carouselCard.offset-0 {
+  transform: translateX(-50%) scale(1);
+  z-index: 3;
+  filter: blur(0);
+}
+
+/**Card 2 positioning**/
+.carouselCard.offset-1 {
+  transform: translateX(10%) scale(0.85);
+  z-index: 2;
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+/**Card 3 positioning**/
+.carouselCard.offset-2 {
+  transform: translateX(-110%) scale(0.85);
+  z-index: 1;
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+/**Photo**/
+.carouselCard .photoReviewCircle {
+  width: 100%;
+  height: 160px;
+  border-radius: 16px;
+}
+
+/**Less Circle**/
+.carouselCard .photoReviewCircle img {
+  border-radius: 16px;
+}
+
 /**Hero wrapper**/
 .hero {
   text-align: center;

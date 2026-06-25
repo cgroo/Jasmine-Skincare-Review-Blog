@@ -33,7 +33,10 @@ export default function DetailModal({review, onClose}) {
     }
 
     useEffect(() => {
-        if (review) loadComments();
+        if (review) {
+            loadComments();
+            supabase.from('clicks').insert([{ review_id: review.id}]);
+        }
     }, [review]);
 
     if (!review) {
@@ -46,11 +49,10 @@ export default function DetailModal({review, onClose}) {
                     X
                 </button>
                 <div className = "bodyReview">
-                    <p>{review.emoji}</p>
+                    {review.photo ? <img src={review.photo} alt={review.name} className="modalPhoto"/> : <p>{review.emoji}</p>}
                     <p>{review.name}</p>
                     <p>{review.cat}</p>
                     <p>{review.brand}</p>
-                    {review.photo ? <img src={review.photo} alt={review.name} className="modalPhoto"/> : <p>{review.emoji}</p>}
                 </div>
                 <div className = "ratingReview">
                     <Stars productRating={review.rating} />

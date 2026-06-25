@@ -11,9 +11,14 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [showNew, setShowNew] = useState(false);
   const [detail, setDetail] = useState(null);
+  const [allComments, setAllComments] = useState([]);
+  const [allClicks, setAllClicks] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     loadReviews();
+    loadComments();
+    loadClicks();
   }, [])
 
   const visible = reviews.filter(r => {
@@ -23,7 +28,23 @@ export default function App() {
     return matchCat && matchQuery;
   });
 
-  const trending = [...reviews].sort((a, b) => b.rating - a.rating).slice(0, 3);
+  const aWeekAgo = new Date();
+  aWeekAgo.setDate(aWeekAgo.getDate()-7);
+  const recentComments = allComments.filter(c => new Date(c.created_at) > aWeekAgo);
+  const recentClicks = allClicks.filter(c => new Date(c.created_at) > aWeekAgo);
+  const trending = [...reviews].map(r => {
+    const commentCount = recentComments.filter(c => c.review_id === r.id).length;
+    const clickCount = recentClicks.filter(c => c.review_id === r.id).length;
+    return { ...r, score: commentCount + clickCount };
+  }).sort((a,b) => b.score - a.score).slice(0,3);
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % trending.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [trending.length])
+
 
   async function handlePublish(newReview) {
     await supabase.from('reviews').insert([newReview]);
@@ -44,6 +65,16 @@ export default function App() {
     const { data, error } = await supabase.from('reviews').select('*');
     if (data) setReviews(data);
     }
+
+  async function loadComments() {
+    const { data } = await supabase.from('comments').select('*');
+    if (data) setAllComments(data);
+  }
+  
+  async function loadClicks() {
+    const { data } = await supabase.from('clicks').select('*');
+    if (data) setAllClicks(data);
+  }
 
 
   return (
@@ -74,20 +105,20 @@ export default function App() {
       </section>
 
       {/* Trending */}
-      {trending.length > 0 && (
-        <section className="trending">
-          <h3 className="trendingTitle">✨ Trending Reviews</h3>
-          <div className="trendingGrid">
-            {trending.map(r => (
-              <ReviewCard
-                key={r.id}
-                review={r}
-                onClick={() => setDetail(r)}
-              />
-            ))}
-          </div>
-        </section>
-      )}
+      <div className="carousel">
+          {trending.map((r, i) => {
+              const offset = (i - activeIndex + trending.length) % trending.length;
+              return (
+                  <div 
+                      key={r.id} 
+                      className={`carouselCard offset-${offset}`}
+                      onClick={() => setDetail(r)}
+                  >
+                      <ReviewCard review={r} onClick={() => setDetail(r)} />
+                  </div>
+              );
+          })}
+      </div>
 
       {/* Search and filters */}
       <div className="controls">
