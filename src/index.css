@@ -73,6 +73,29 @@ body {
   gap: 16px;
 }
 
+/**Trending section wrapper**/
+.trending {
+  max-width: 960px;
+  margin: 0 auto 36px;
+  padding: 0 24px;
+}
+
+/**Trending section title**/
+.trendingTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #d4698a;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/**Grid for the 3 trending cards**/
+.trendingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+}
+
 /**Individual stat boxes**/
 .stat {
   background: white;

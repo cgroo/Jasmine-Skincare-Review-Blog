@@ -23,6 +23,8 @@ export default function App() {
     return matchCat && matchQuery;
   });
 
+  const trending = [...reviews].sort((a, b) => b.rating - a.rating).slice(0, 3);
+
   async function handlePublish(newReview) {
     await supabase.from('reviews').insert([newReview]);
     await loadReviews();
@@ -65,17 +67,27 @@ export default function App() {
             <span className="statLabel">reviews</span>
           </div>
           <div className="stat">
-            <span className="statValue">
-              {(reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1)}
-            </span>
-            <span className="statLabel">avg rating</span>
-          </div>
-          <div className="stat">
             <span className="statValue">{CATEGORIES.length - 1}</span>
             <span className="statLabel">categories</span>
           </div>
         </div>
       </section>
+
+      {/* Trending */}
+      {trending.length > 0 && (
+        <section className="trending">
+          <h3 className="trendingTitle">✨ Trending Reviews</h3>
+          <div className="trendingGrid">
+            {trending.map(r => (
+              <ReviewCard
+                key={r.id}
+                review={r}
+                onClick={() => setDetail(r)}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Search and filters */}
       <div className="controls">
