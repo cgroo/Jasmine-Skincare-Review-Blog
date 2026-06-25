@@ -50,7 +50,7 @@ export default function DetailModal({review, onClose}) {
                     <p>{review.name}</p>
                     <p>{review.cat}</p>
                     <p>{review.brand}</p>
-                    <p>{review.review}</p>
+                    {review.photo ? <img src={review.photo} alt={review.name} className="modalPhoto"/> : <p>{review.emoji}</p>}
                 </div>
                 <div className = "ratingReview">
                     <Stars productRating={review.rating} />
