@@ -59,7 +59,7 @@ export default function App() {
   }
 
   async function loadReviews() {
-    const { data, error } = await supabase.from('reviews').select('*');
+    const { data } = await supabase.from('reviews').select('*');
     if (data) setReviews(data);
     }
 

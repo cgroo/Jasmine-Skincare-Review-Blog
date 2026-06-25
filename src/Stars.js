@@ -11,7 +11,7 @@ export function Stars({productRating, fontSize = 13}) {
     );
 }
 
-{/*UI Allowing to pick # of Stars for revieiw*/}
+//UI Allowing to pick # of Stars for revieiw
 export function StarPicker({value, onChange}) {
     return (
         <div className = "starPickerRow">

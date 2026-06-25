@@ -2,7 +2,7 @@ import { Stars } from './Stars';
 import { useState, useEffect } from 'react'
 import { supabase } from './supabase';
 
-{/*Details of review when clicking review card */}
+//Details of review when clicking review card
 export default function DetailModal({review, onClose}) {
     
     const [ author, setAuthor] = useState('');
@@ -37,6 +37,7 @@ export default function DetailModal({review, onClose}) {
             loadComments();
             supabase.from('clicks').insert([{ review_id: review.id}]);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [review]);
 
     if (!review) {

@@ -3,7 +3,7 @@ import { CATEGORIES, CAT_EMOJI } from './data';
 import { useState } from 'react';
 import { supabase } from './supabase';
 
-{/*Making a new review*/}
+//Making a new review
 export default function NewReviewModal({onClose, onPublish}) {
     const [name, setName] = useState('');
     const [brand, setBrand] = useState('');

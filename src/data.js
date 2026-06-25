@@ -1,6 +1,5 @@
 export const CATEGORIES = ['All','Moisturiser','SPF', 'Toner', 'Mask', 'Cleanser', 'Eye Cream', 'Serum'];
  
-{/* Category Emojis */}
 export const CAT_EMOJI = {
   Moisturiser: '🧴',
   SPF: '☀️',
