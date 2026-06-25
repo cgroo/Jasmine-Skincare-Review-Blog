@@ -520,9 +520,22 @@ body {
   cursor: pointer;
 }
 
+/**Footer**/
 .footer{
   text-align: center;
   padding: 24px;
   font-size: 13px;
   color: #a87d92;
+}
+
+/**Error banner**/
+.errorBanner {
+  background: #ffe0e0;
+  color: #c0392b;
+  border: 1px solid #f5b7b1;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  text-align: center;
 }

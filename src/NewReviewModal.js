@@ -11,10 +11,11 @@ export default function NewReviewModal({onClose, onPublish}) {
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
     const [photo, setPhoto] = useState(null);
+    const [error, setError] = useState('');
 
     async function handlePublish() {
         if (!name || !brand || !review || rating === 0) {
-            alert('Please fill in all fields!')
+            setError('Please fill in all fields!');
             return
         }
         let photoUrl = null;
@@ -39,6 +40,7 @@ export default function NewReviewModal({onClose, onPublish}) {
     return(
         <div className = " newReviewPopup">
             <div className = " newReviewBox" onClick = {e => e.stopPropagation()}>
+                {error && <div className="errorBanner">{error}</div>}
                 <button className = " closeButton" onClick = {onClose}>X</button>
                 <label htmlFor = " productName">Product Name:</label>
                 <input type = " text" value = {name} onChange = {e => setName(e.target.value)}/>
