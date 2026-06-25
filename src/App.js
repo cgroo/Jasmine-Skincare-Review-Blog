@@ -82,7 +82,7 @@ export default function App() {
 
       {/* Nav */}
       <nav className="nav">
-        <h1 className="blogName">Jasmine's Reviews 🌸</h1>
+        <h1 className="blogName">Jasmine Tries Everything 🌸</h1>
         <button className="openButton" onClick={() => handleAdminClick()}>
           + New Review
         </button>
@@ -90,8 +90,8 @@ export default function App() {
 
       {/* Hero */}
       <section className="hero">
-        <h2>Honest skincare reviews,<br/>by Jasmine</h2>
-        <p>FILLER</p>
+        <h2>No fluff skincare reviews,<br/>real results from me!</h2>
+        <p>Are you a chud? Chud no longer using my honest takes, zero sponsorships, all vibes.</p>
         <div className="stats">
           <div className="stat">
             <span className="statValue">{reviews.length}</span>
@@ -153,6 +153,10 @@ export default function App() {
         ))}
       </div>
 
+      {/* Footer */}
+      <footer className = "footer">
+        <p>Made with 💕 by Angelo, for Jasmine (you should change this to your socials xdd, maybe with a little container, we can make a cute lil logo or smn and spam it around the page HEHE)</p>
+      </footer>
       {/* Modals */}
       {showNew && <NewReviewModal onClose={() => setShowNew(false)} onPublish={handlePublish}/>}
       {detail && <DetailModal review={detail} onClose={() => setDetail(null)}/>}
