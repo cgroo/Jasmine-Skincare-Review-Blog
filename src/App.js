@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CATEGORIES } from "./data";
 import { supabase } from './supabase';
+import LoginModal from "./LoginModal";
 import ReviewCard from "./ReviewCard";
 import NewReviewModal from "./NewReviewModal";
 import DetailModal from "./DetailModal";
@@ -14,6 +15,7 @@ export default function App() {
   const [allComments, setAllComments] = useState([]);
   const [allClicks, setAllClicks] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
     loadReviews();
@@ -53,12 +55,7 @@ export default function App() {
   }
 
   function handleAdminClick() {
-    let password = prompt("Please enter your password");
-    if (password === process.env.REACT_APP_UPLOAD_PASSWORD) {
-      setShowNew(true)
-    } else {
-      alert("Incorrect Password!");
-    }
+    setShowLogin(true);
   }
 
   async function loadReviews() {
@@ -160,7 +157,11 @@ export default function App() {
       {/* Modals */}
       {showNew && <NewReviewModal onClose={() => setShowNew(false)} onPublish={handlePublish}/>}
       {detail && <DetailModal review={detail} onClose={() => setDetail(null)}/>}
-
+      {showLogin && (
+        <LoginModal 
+          onClose={() => setShowLogin(false)} 
+          onSuccess={() => { setShowLogin(false); setShowNew(true); }}
+      />)}
     </div>
   );
 }

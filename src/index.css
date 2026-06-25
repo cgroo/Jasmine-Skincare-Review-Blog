@@ -539,3 +539,39 @@ body {
   margin-bottom: 12px;
   text-align: center;
 }
+
+/**Login box**/
+.loginBox {
+  text-align: center;
+}
+
+/**Login main title**/
+.loginTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/**Login enter prompt**/
+.loginSubtitle {
+  font-size: 14px;
+  color: #a87d92;
+  margin-bottom: 20px;
+}
+
+/**Login input field**/
+.loginInput {
+  width: 100%;
+  border: 1.5px solid #f4cfdd;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/**Login on-click**/
+.loginInput:focus {
+  border-color: #f4a7c0;
+}
