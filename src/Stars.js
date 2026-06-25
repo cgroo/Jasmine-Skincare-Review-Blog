@@ -3,7 +3,7 @@ export function Stars({productRating, fontSize = 13}) {
         <div className = "starsRow">
             {[1,2,3,4,5].map(i => (
                 <span key = {i} 
-                className = {i <= productRating ? 'litStar' : 'star'}
+                className = {i <= productRating ? 'star lit' : 'star'}
                 style = {{fontSize : fontSize}}
                 >★</span>
             ))}
@@ -18,7 +18,7 @@ export function StarPicker({value, onChange}) {
             {[1,2,3,4,5].map(i => (
                 <button key = {i}
                     onClick = {() => onChange(i)}
-                    className = {i <= value ? 'selectedStar': 'star'}
+                    className = {i <= value ? 'star lit' : 'star'}
                 >★</button>
             ))}
         </div>
