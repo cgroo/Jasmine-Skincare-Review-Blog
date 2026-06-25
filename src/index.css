@@ -323,3 +323,101 @@ body {
 .star-btn.lit{
   color: #e8537e;
 }
+
+/**Review for Modal box**/
+.modalBox .bodyReview {
+  text-align: center;
+  margin-top: 6px;
+}
+
+/**Emoji**/
+.modalBox .bodyReview p:first-child {
+  font-size: 48px;
+  margin-bottom: 6px;
+}
+
+/**Product Name**/
+.modalBox .bodyReview p:nth-child(2) {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/**Category**/
+.modalBox .bodyReview p:nth-child(3) {
+  font-size: 12px;
+  color: #d4698a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/**Brand**/
+.modalBox .bodyReview p:nth-child(4) {
+  font-size: 13px;
+  color: #a87d92;
+  margin-bottom: 12px;
+}
+
+/**Review text**/
+.modalBox .bodyReview p:nth-child(5) {
+  font-size: 14px;
+  text-align: left;
+  background: #fdf6f4;
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/**Comment Section box**/
+.commentsSection {
+  margin-top:24px;
+  border-top: 1.5px dashed #f4cfdd;
+  padding-top: 20px;
+}
+
+/**Comment section title**/
+.commentsSection h3 {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/**Individual comments**/
+.comment {
+  background: #fdf6f4;
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/**Comment Author**/
+.comment strong {
+  font-size: 13px;
+  color: #d4698a;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/**Comment input area**/
+.commentsSection input, .commentsSection textarea {
+  width: 100%;
+  border: 1.5px solid #f4cfdd;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-top: 8px;
+  outline: none;
+}
+
+/**Comment submit button**/
+.commentsSection button {
+  margin-top: 10px;
+  background: #f4a7c0;
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
